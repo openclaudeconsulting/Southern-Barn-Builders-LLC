@@ -202,12 +202,46 @@
 </footer>
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL BELOW
+  var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxAvS5I-A-1nIvxvZrVJg_9WCieDjW0wQLMuSXI6F3tEGXwtri1bl9iARrfNafT1F0P3g/exec";
+
   function handleQuote(e){
     e.preventDefault();
-    // Client-side only in this static site — in production, wire to email service or backend.
-    document.getElementById('quoteForm').style.display = 'none';
-    document.getElementById('quoteSuccess').style.display = 'block';
-    window.scrollTo({top: document.getElementById('quoteSuccess').offsetTop - 80, behavior:'smooth'});
+    var form = document.getElementById('quoteForm');
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    var data = {
+      fname: form.fname.value,
+      lname: form.lname.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      city: form.city.value,
+      state: form.state.value,
+      type: form.type.value,
+      size: form.size.value,
+      timing: form.timing.value,
+      details: form.details.value
+    };
+
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.style.display = 'none';
+      document.getElementById('quoteSuccess').style.display = 'block';
+      window.scrollTo({top: document.getElementById('quoteSuccess').offsetTop - 80, behavior:'smooth'});
+    })
+    .catch(function(){
+      btn.disabled = false;
+      btn.textContent = 'Send My Request';
+      alert('Something went wrong. Please call us directly at (239) 555-0142.');
+    });
     return false;
   }
 </script>
