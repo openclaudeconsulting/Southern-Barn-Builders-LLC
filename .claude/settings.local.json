@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"/c/Users/joshu/OneDrive/Documents/Claude/Projects/Southern Barn Services/southern-barn-builders/index.html\" \"/c/Users/joshu/Southern Barn Builders LLC/index.html\")",
+      "Bash(cp \"/c/Users/joshu/OneDrive/Documents/Claude/Projects/Southern Barn Services/southern-barn-builders/about.html\" \"/c/Users/joshu/Southern Barn Builders LLC/about.html\")",
+      "Bash(cp \"/c/Users/joshu/OneDrive/Documents/Claude/Projects/Southern Barn Services/southern-barn-builders/contact.html\" \"/c/Users/joshu/Southern Barn Builders LLC/contact.html\")",
+      "Bash(cp \"/c/Users/joshu/OneDrive/Documents/Claude/Projects/Southern Barn Services/southern-barn-builders/gallery.html\" \"/c/Users/joshu/Southern Barn Builders LLC/gallery.html\")",
+      "Bash(cp \"/c/Users/joshu/OneDrive/Documents/Claude/Projects/Southern Barn Services/southern-barn-builders/service-area.html\" \"/c/Users/joshu/Southern Barn Builders LLC/service-area.html\")"
+    ]
+  }
+}
